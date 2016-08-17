@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {
   ActiveBlogService,
   Blog,
@@ -7,6 +8,7 @@ import {
 } from '../shared';
 
 @Component({
+  directives: [ROUTER_DIRECTIVES],
   moduleId: module.id,
   selector: 'a2t-blogs',
   templateUrl: 'blogs.component.html',
@@ -32,6 +34,10 @@ export class BlogsComponent implements OnDestroy, OnInit {
 
   activateBlog(id: number) {
     this.activeBlogService.setActive(id);
+  }
+
+  editBlog(id: number) {
+    this.activateBlog(id);
   }
 
   populate() {

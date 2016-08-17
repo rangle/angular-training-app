@@ -21,8 +21,9 @@ export class ActiveBlogComponent implements Blog, OnDestroy, OnInit {
   }
 
   ngOnInit() {
-    this.unsubscribe = this.activeBlogService
+    const observer = this.activeBlogService
       .subscribe(this.setActive.bind(this));
+    this.unsubscribe = observer.unsubscribe;
     this.setActive();
   }
 

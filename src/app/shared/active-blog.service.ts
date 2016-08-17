@@ -22,6 +22,12 @@ export class ActiveBlogService {
     if (blog) {
       this.activeBlog = blog;
       this.change.emit(this.activeBlog);
+    } else {
+      this.activeBlog = {
+        body: '',
+        id: 0,
+        title: '',
+      }
     }
   }
 }

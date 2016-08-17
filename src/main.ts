@@ -1,7 +1,14 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { AppComponent, environment } from './app/';
-import { ActiveBlogService, BlogsService, SettingsService } from './app/shared';
+import { provideRouter } from '@angular/router';
+import {
+  AppComponent,
+  ActiveBlogService,
+  BlogsService,
+  environment,
+  routes,
+  SettingsService,
+} from './app';
 
 if (environment.production) {
   enableProdMode();
@@ -10,5 +17,6 @@ if (environment.production) {
 bootstrap(AppComponent, [
   ActiveBlogService,
   BlogsService,
+  provideRouter(routes),
   SettingsService,
 ]);
