@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Blog, BlogsService } from '../shared';
 
 @Component({
   moduleId: module.id,
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['blogs-list.component.css']
 })
 export class BlogsListComponent implements OnInit {
+  blogs: Blog[];
 
-  constructor() { }
+  constructor(private blogsService: BlogsService) { }
 
   ngOnInit() {
+    this.blogs = this.blogsService.getAll();
   }
 
 }

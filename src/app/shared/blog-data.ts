@@ -4,4 +4,9 @@ export const blogData = [
     id: 1,
     title: 'First Post!',
   },
+  {
+    body: 'Lorem Ipsum...',
+    id: 2,
+    title: 'Last Post!',
+  },
 ];

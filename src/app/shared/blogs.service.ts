@@ -4,7 +4,7 @@ import { blogData } from './blog-data';
 
 @Injectable()
 export class BlogsService {
-  private blogs: Map<number, Blog>;
+  private blogs: Map<number, Blog> = new Map<number, Blog>();
 
   constructor() {
     // fetch blogs
@@ -16,7 +16,13 @@ export class BlogsService {
   }
 
   getAll() {
-    return this.blogs;
+    const all = [];
+
+    this.blogs.forEach((blog) => {
+      all.push(blog);
+    });
+
+    return all;
   }
 
   set(blog: Blog) {
