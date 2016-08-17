@@ -1,3 +1,6 @@
 <ul>
-    <li *ngFor="let blog of blogs">{{ blog.title }}</li>
+    <li *ngFor="let blog of blogs">
+        <a title="{{ blog.body.slice(0, 255)}}"
+           (click)="activateBlog(blog.id)">{{ blog.title }}</a>
+    </li>
 </ul>

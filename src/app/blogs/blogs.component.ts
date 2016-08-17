@@ -1,5 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Blog, BlogsService, SettingsService } from '../shared';
+import {
+  ActiveBlogService,
+  Blog,
+  BlogsService,
+  SettingsService,
+} from '../shared';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +17,8 @@ export class BlogsComponent implements OnDestroy, OnInit {
   unsubscribe: Function;
 
   constructor(private blogsService: BlogsService,
-              private settingsService: SettingsService) { }
+              private settingsService: SettingsService,
+              private activeBlogService: ActiveBlogService) { }
 
   ngOnDestroy() {
     this.unsubscribe();
@@ -22,6 +28,10 @@ export class BlogsComponent implements OnDestroy, OnInit {
     this.populate();
     const observer = this.blogsService.subscribe(this.populate.bind(this));
     this.unsubscribe = observer.unsubscribe;
+  }
+
+  activateBlog(id: number) {
+    this.activeBlogService.setActive(id);
   }
 
   populate() {
