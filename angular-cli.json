@@ -23,7 +23,7 @@
     }
   },
   "defaults": {
-    "prefix": "app",
+    "prefix": "a2t",
     "sourceDir": "src",
     "styleExt": "css",
     "prefixInterfaces": false,
