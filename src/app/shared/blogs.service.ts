@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Blog } from './blog.ts';
 import { blogData } from './blog-data';
 
 @Injectable()
 export class BlogsService {
   private blogs: Blog[];
+  private change: EventEmitter<Blog> = new EventEmitter<Blog>();
+  public subscribe: Function;
 
   constructor() {
     // fetch from server
     this.blogs = blogData.reverse();
+    this.subscribe = this.change.subscribe.bind(this.change);
   }
 
   add(blog: Blog) {
@@ -20,6 +23,7 @@ export class BlogsService {
       blog.id = nextId;
     }
     this.blogs.unshift(blog);
+    this.change.emit(blog);
     // upload to server
   }
 
