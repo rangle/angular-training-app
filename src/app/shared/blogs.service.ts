@@ -12,6 +12,13 @@ export class BlogsService {
   }
 
   add(blog: Blog) {
+    if (blog.id === 0) {
+      const nextId = this.blogs
+        .reduce((highest, next) => next.id > highest ?
+          next.id :
+          highest, 1) + 1;
+      blog.id = nextId;
+    }
     this.blogs.unshift(blog);
     // upload to server
   }

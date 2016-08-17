@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { BlogsComponent } from './blogs';
+import { BlogEditComponent } from './blog-edit';
 
 @Component({
-  directives: [ BlogsComponent ],
+  directives: [ BlogsComponent, BlogEditComponent ],
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
