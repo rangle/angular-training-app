@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Blog, EMPTY_BLOG } from '../shared';
 
 @Component({
   moduleId: module.id,
@@ -6,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'active-blog.component.html',
   styleUrls: ['active-blog.component.css']
 })
-export class ActiveBlogComponent implements OnInit {
+export class ActiveBlogComponent {
+  @Input() blog: Blog = EMPTY_BLOG;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
