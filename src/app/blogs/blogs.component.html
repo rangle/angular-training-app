@@ -1,0 +1,12 @@
+<ul>
+    <li *ngFor="let blog of blogs">
+        <a title="{{ blog.body.slice(0, 255)}}"
+           (click)="activateBlog(blog.id)"
+           [routerLink]="['/active-blog']"
+        >{{ blog.title }}</a>
+        <a title="Edit {{ blog.title }}"
+           (click)="editBlog(blog.id)"
+           [routerLink]="['/edit-blog']"
+        >[Edit]</a>
+    </li>
+</ul>
