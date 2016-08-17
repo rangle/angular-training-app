@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Blog } from './blog';
 import { blogData } from './blog-data';
+import { EMPTY_BLOG } from './defaults';
 
 @Injectable()
 export class BlogsService {
@@ -23,6 +24,14 @@ export class BlogsService {
     });
 
     return all;
+  }
+
+  mostRecent(): Blog {
+    let blog = EMPTY_BLOG;
+    this.blogs.forEach((b) => {
+      blog = b;
+    });
+    return blog;
   }
 
   set(blog: Blog) {

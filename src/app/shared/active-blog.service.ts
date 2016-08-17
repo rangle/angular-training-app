@@ -5,9 +5,11 @@ import { EMPTY_BLOG } from './defaults';
 
 @Injectable()
 export class ActiveBlogService {
-  private blog: Blog;
+  private blog: Blog = EMPTY_BLOG;
 
-  constructor(private blogsService: BlogsService) { }
+  constructor(private blogsService: BlogsService) {
+     this.blog = blogsService.mostRecent();
+  }
 
   getActive() {
     return this.blog;
