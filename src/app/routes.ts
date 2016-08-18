@@ -1,7 +1,7 @@
 import { RouterConfig } from '@angular/router';
-import { ActiveBlogComponent } from './active-blog';
+import { BlogRouteComponent } from './blog-route';
 
 export const routes: RouterConfig = [
   { path: '', redirectTo: '/blog', pathMatch: 'full' },
-  { path: 'blog', component: ActiveBlogComponent },
+  { path: 'blog', component: BlogRouteComponent },
 ];

@@ -12,22 +12,11 @@ import { ActiveBlogService, Blog } from './shared';
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnDestroy, OnInit {
-  private activeBlog: Blog;
-  private unsubscribeActiveBlog: Function;
-
   constructor(private activeBlogService: ActiveBlogService) {}
 
   ngOnDestroy() {
-    this.unsubscribeActiveBlog();
   }
 
   ngOnInit() {
-    this.activeBlog = this.activeBlogService.getActive();
-
-    const observer = this.activeBlogService.subscribe((blog: Blog) => {
-      this.activeBlog = blog;
-    });
-
-    this.unsubscribeActiveBlog = observer.unsubscribe.bind(observer);
   }
 }
