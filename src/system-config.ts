@@ -40,6 +40,7 @@ const barrels: string[] = [
   'app/active-blog',
   'app/blog-route',
   'app/edit-route',
+  'app/editor',
   /** @cli-barrel */
 ];
 
