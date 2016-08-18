@@ -1,5 +1,11 @@
-<form>
-    <label>Title <input type="text" name="title"></label>
-    <label>Post <textarea name="body"></textarea></label>
-    <button>Save</button>
+<form #blogEditor="ngForm" (ngSubmit)="updateBlog(blogEditor)">
+    <label>Title
+        <input type="text" name="title"
+               [ngModel]="blog.title" required>
+    </label>
+    <label>Post
+        <textarea name="body" [ngModel]="blog.body" required>
+        </textarea>
+    </label>
+    <button type="submit">Save</button>
 </form>

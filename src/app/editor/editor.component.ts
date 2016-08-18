@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FORM_DIRECTIVES, NgForm } from '@angular/forms';
+import { Blog } from '../shared';
 
 @Component({
   directives: [ FORM_DIRECTIVES ],
@@ -9,10 +10,20 @@ import { FORM_DIRECTIVES } from '@angular/forms';
   styleUrls: ['editor.component.css']
 })
 export class EditorComponent implements OnInit {
+  @Input() blog: Blog;
+  @Output() update = new EventEmitter<Blog>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  updateBlog(blogEditor: NgForm) {
+    this.update.emit({
+      body: blogEditor.value.body,
+      id: this.blog.id,
+      title: blogEditor.value.title,
+    });
   }
 
 }
