@@ -11,7 +11,7 @@ export class ActiveBlogService {
 
   constructor(private blogsService: BlogsService) {
     this.blog = blogsService.mostRecent();
-    this.subscribe = this.eventChanges.subscribe.bind(this);
+    this.subscribe = this.eventChanges.subscribe.bind(this.eventChanges);
   }
 
   getActive() {
