@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Blog, BlogsService } from '../shared';
+import { ActiveBlogService, Blog, BlogsService } from '../shared';
 
 @Component({
   moduleId: module.id,
@@ -10,10 +10,17 @@ import { Blog, BlogsService } from '../shared';
 export class BlogsListComponent implements OnInit {
   blogs: Blog[];
 
-  constructor(private blogsService: BlogsService) { }
+  constructor(private blogsService: BlogsService,
+              private activeBlogService: ActiveBlogService) { }
 
+  /* move this logic up a level.  Use @Input/@Output instead */
   ngOnInit() {
     this.blogs = this.blogsService.getAll();
   }
 
+  /* move this logic up a level.  Use @Input/@Output instead */
+  onClick(id: number) {
+    console.log('blog-click', id);
+    this.activeBlogService.setActive(id);
+  }
 }
