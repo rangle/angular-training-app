@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<div class="ata-app">
+  <ata-blogs-list></ata-blogs-list>
+  <router-outlet></router-outlet>
+  <div>
+    <a [routerLink]="['/edit']">Edit</a>
+    <a [routerLink]="['/blog']">View</a>
+  </div>
+</div>

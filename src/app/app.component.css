@@ -1,0 +1,12 @@
+.ata-app {
+   display: flex;
+   flex-direction: row;
+}
+
+ata-active-blog {
+   flex: 5;
+}
+
+ata-blogs-list {
+   flex: 1;
+}

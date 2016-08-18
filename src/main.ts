@@ -1,9 +1,23 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { AppComponent, environment } from './app/';
+import { provideRouter } from '@angular/router';
+import { provideForms, disableDeprecatedForms } from '@angular/forms';
+import { routes } from './app/routes'
+import {
+  ActiveBlogService,
+  AppComponent,
+  BlogsService,
+  environment,
+} from './app/';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent);
+bootstrap(AppComponent, [
+  ActiveBlogService,
+  BlogsService,
+  disableDeprecatedForms(),
+  provideForms(),
+  provideRouter(routes),
+]);

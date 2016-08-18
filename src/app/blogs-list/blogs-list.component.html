@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let blog of blogs"
+        (click)="onClick(blog.id)"
+    >{{ blog.title }}</li>
+</ul>
