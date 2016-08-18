@@ -39,6 +39,7 @@ const barrels: string[] = [
   'app/blogs-list',
   'app/active-blog',
   'app/blog-route',
+  'app/edit-route',
   /** @cli-barrel */
 ];
 
